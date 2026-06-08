@@ -1,19 +1,19 @@
-pageextension 50604 "JGV Job Queue Entries BIQS" extends "Job Queue Entries"
+pageextension 50604 "Job Queue Entries Ext BIQS" extends "Job Queue Entries"
 {
     layout
     {
         addafter(Description)
         {
-            field("JGV Monitor For Errors BIQS"; Rec."JGV Monitor For Errors BIQS")
+            field("Monitor For Errors BIQS"; Rec."Monitor For Errors BIQS")
             {
                 ApplicationArea = All;
                 ToolTip = 'Geeft aan of deze taakwachtrij-post wordt bewaakt door de taakwachtrij-foutmelding wanneer de status Fout is.';
             }
-            field("JGV Max Restart Att. BIQS"; Rec."JGV Max Restart Att. BIQS")
+            field("Max Restart Att. BIQS"; Rec."Max Restart Att. BIQS")
             {
                 ApplicationArea = All;
             }
-            field("JGV Notif. Cooldown BIQS"; Rec."JGV Notif. Cooldown BIQS")
+            field("Notif. Cooldown BIQS"; Rec."Notif. Cooldown BIQS")
             {
                 ApplicationArea = All;
             }

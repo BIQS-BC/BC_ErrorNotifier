@@ -1,15 +1,15 @@
-pageextension 50602 "JGV G/L setup Ext BIQS" extends "General Ledger Setup"
+pageextension 50602 "G/L Setup Ext BIQS" extends "General Ledger Setup"
 {
     layout
     {
         addlast(General)
         {
-            field("JGV Support E-Mail BIQS"; Rec."JGV Support E-Mail BIQS")
+            field("Support E-Mail BIQS"; Rec."Support E-Mail BIQS")
             {
                 ApplicationArea = All;
                 ToolTip = 'Geeft het e-mailadres op van de ontvanger die door de taakwachtrij-foutmelding wordt gebruikt om fouten in taakwachtrij-posten te rapporteren.';
             }
-            field("JGV Support Mail Acc. Id BIQS"; Rec."JGV Support Mail Acc. Id BIQS")
+            field("Support Mail Acc. Id BIQS"; Rec."Support Mail Acc. Id BIQS")
             {
                 ApplicationArea = All;
                 Caption = 'Ondersteunings-e-mailaccount';
@@ -32,17 +32,17 @@ pageextension 50602 "JGV G/L setup Ext BIQS" extends "General Ledger Setup"
 
                     EmailAccountsPage.GetRecord(TempEmailAccount);
 
-                    Rec."JGV Support Mail Acc. Id BIQS" :=
-                        CopyStr(TempEmailAccount."Email Address", 1, MaxStrLen(Rec."JGV Support Mail Acc. Id BIQS"));
+                    Rec."Support Mail Acc. Id BIQS" :=
+                        CopyStr(TempEmailAccount."Email Address", 1, MaxStrLen(Rec."Support Mail Acc. Id BIQS"));
                     CurrPage.SaveRecord();
                 end;
             }
-            field("JGV Max Restart Att. BIQS"; Rec."JGV Max Restart Att. BIQS")
+            field("Max Restart Att. BIQS"; Rec."Max Restart Att. BIQS")
             {
                 ApplicationArea = All;
                 ToolTip = 'Geeft aan hoeveel opeenvolgende mislukte herstartpogingen worden gedaan voordat een meldingse-mail wordt verzonden. Laat op 0 staan voor de standaardwaarde van 3 (ca. 15 min. bij een interval van 5 min.). De teller wordt na elke e-mail gereset.';
             }
-            field("JGV Notif. Cooldown Hrs BIQS"; Rec."JGV Notif. Cooldown Hrs BIQS")
+            field("Notif. Cooldown Hrs BIQS"; Rec."Notif. Cooldown Hrs BIQS")
             {
                 ApplicationArea = All;
                 ToolTip = 'Geeft het minimale aantal minuten op tussen opeenvolgende meldingse-mails voor dezelfde taakwachtrij-post. Laat op 0 staan voor de standaardwaarde van 120 minuten.';

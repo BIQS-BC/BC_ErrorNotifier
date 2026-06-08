@@ -3,7 +3,7 @@
 // e-mail the counter resets so restarts are retried before the next notification.
 // Thresholds (max attempts, cooldown minutes) can be set per entry or globally in
 // GL Setup; leaving them at 0 applies defaults (3 attempts, 120 minutes).
-codeunit 50600 "JGV Job Queue Err Notif BIQS"
+codeunit 50600 "Job Queue Err Notif BIQS"
 {
     trigger OnRun()
     begin
@@ -15,8 +15,8 @@ codeunit 50600 "JGV Job Queue Err Notif BIQS"
         GLSetup: Record "General Ledger Setup";
     begin
         GLSetup.Get();
-        GLSetup.TestField("JGV Support E-Mail BIQS");
-        GLSetup.TestField("JGV Support Mail Acc. Id BIQS");
+        GLSetup.TestField("Support E-Mail BIQS");
+        GLSetup.TestField("Support Mail Acc. Id BIQS");
 
         this.ResetCountersForRecoveredEntries();
         this.IncrementCountersForErrorEntries();
@@ -28,14 +28,14 @@ codeunit 50600 "JGV Job Queue Err Notif BIQS"
     var
         JobQueueEntry: Record "Job Queue Entry";
     begin
-        JobQueueEntry.SetRange("JGV Monitor For Errors BIQS", true);
+        JobQueueEntry.SetRange("Monitor For Errors BIQS", true);
         JobQueueEntry.SetFilter(Status, '<>%1', JobQueueEntry.Status::Error);
-        JobQueueEntry.SetFilter("JGV Restart Attempts BIQS", '>0');
+        JobQueueEntry.SetFilter("Restart Attempts BIQS", '>0');
         if not JobQueueEntry.FindSet(true) then
             exit;
         repeat
-            JobQueueEntry."JGV Restart Attempts BIQS" := 0;
-            JobQueueEntry."JGV Last Notif. Sent BIQS" := 0DT;
+            JobQueueEntry."Restart Attempts BIQS" := 0;
+            JobQueueEntry."Last Notif. Sent BIQS" := 0DT;
             JobQueueEntry.Modify();
         until JobQueueEntry.Next() = 0;
     end;
@@ -45,11 +45,11 @@ codeunit 50600 "JGV Job Queue Err Notif BIQS"
         JobQueueEntry: Record "Job Queue Entry";
     begin
         JobQueueEntry.SetRange(Status, JobQueueEntry.Status::Error);
-        JobQueueEntry.SetRange("JGV Monitor For Errors BIQS", true);
+        JobQueueEntry.SetRange("Monitor For Errors BIQS", true);
         if not JobQueueEntry.FindSet(true) then
             exit;
         repeat
-            JobQueueEntry."JGV Restart Attempts BIQS" += 1;
+            JobQueueEntry."Restart Attempts BIQS" += 1;
             JobQueueEntry.Modify();
         until JobQueueEntry.Next() = 0;
     end;
@@ -61,27 +61,27 @@ codeunit 50600 "JGV Job Queue Err Notif BIQS"
         EmailMessage: Codeunit "Email Message";
         Body: TextBuilder;
         CooldownThreshold: DateTime;
-        SubjectLbl: Label 'Jan Gevers Business Central: Job Queue Errors detected (%1)', Comment = '%1 = number of Job Queue Entries in error';
+        SubjectLbl: Label 'Business Central: Job Queue Errors detected (%1)', Comment = '%1 = number of Job Queue Entries in error';
     begin
         JobQueueEntry.SetRange(Status, JobQueueEntry.Status::Error);
-        JobQueueEntry.SetRange("JGV Monitor For Errors BIQS", true);
+        JobQueueEntry.SetRange("Monitor For Errors BIQS", true);
         if not JobQueueEntry.FindSet(true) then
             exit;
 
         repeat
-            if JobQueueEntry."JGV Restart Attempts BIQS" <= this.GetMaxRestartAttempts(GLSetup, JobQueueEntry) then
+            if JobQueueEntry."Restart Attempts BIQS" <= this.GetMaxRestartAttempts(GLSetup, JobQueueEntry) then
                 continue;
 
             CooldownThreshold := CurrentDateTime() - (this.GetNotifCooldownMins(GLSetup, JobQueueEntry) * 60000);
 
-            if JobQueueEntry."JGV Last Notif. Sent BIQS" = 0DT then begin
+            if JobQueueEntry."Last Notif. Sent BIQS" = 0DT then begin
                 EntriesToNotify.Add(JobQueueEntry.ID);
-                JobQueueEntry."JGV Last Notif. Sent BIQS" := CurrentDateTime();
+                JobQueueEntry."Last Notif. Sent BIQS" := CurrentDateTime();
                 JobQueueEntry.Modify();
-            end else if JobQueueEntry."JGV Last Notif. Sent BIQS" <= CooldownThreshold then begin
+            end else if JobQueueEntry."Last Notif. Sent BIQS" <= CooldownThreshold then begin
                 EntriesToNotify.Add(JobQueueEntry.ID);
-                JobQueueEntry."JGV Restart Attempts BIQS" := 0;
-                JobQueueEntry."JGV Last Notif. Sent BIQS" := CurrentDateTime();
+                JobQueueEntry."Restart Attempts BIQS" := 0;
+                JobQueueEntry."Last Notif. Sent BIQS" := CurrentDateTime();
                 JobQueueEntry.Modify();
             end;
         until JobQueueEntry.Next() = 0;
@@ -92,7 +92,7 @@ codeunit 50600 "JGV Job Queue Err Notif BIQS"
         this.BuildBody(Body, EntriesToNotify);
 
         EmailMessage.Create(
-            GLSetup."JGV Support E-Mail BIQS",
+            GLSetup."Support E-Mail BIQS",
             StrSubstNo(SubjectLbl, EntriesToNotify.Count()),
             Body.ToText(),
             true);
@@ -105,7 +105,7 @@ codeunit 50600 "JGV Job Queue Err Notif BIQS"
         JobQueueEntry: Record "Job Queue Entry";
     begin
         JobQueueEntry.SetRange(Status, JobQueueEntry.Status::Error);
-        JobQueueEntry.SetRange("JGV Monitor For Errors BIQS", true);
+        JobQueueEntry.SetRange("Monitor For Errors BIQS", true);
         if not JobQueueEntry.FindSet() then
             exit;
         repeat
@@ -152,7 +152,7 @@ codeunit 50600 "JGV Job Queue Err Notif BIQS"
                         this.HtmlEncode(JobQueueEntry.Description),
                         this.HtmlEncode(Format(JobQueueEntry."Object Type to Run")),
                         Format(JobQueueEntry."Object ID to Run"),
-                        Format(JobQueueEntry."JGV Restart Attempts BIQS"),
+                        Format(JobQueueEntry."Restart Attempts BIQS"),
                         this.HtmlEncode(JobQueueEntry."Error Message")));
 
         Body.Append('</tbody></table>');
@@ -170,28 +170,28 @@ codeunit 50600 "JGV Job Queue Err Notif BIQS"
         AccountNotFoundErr: Label 'No e-mail account with address %1 was found. Re-select the Support E-Mail Account in General Ledger Setup.', Comment = '%1 = the configured sender e-mail address';
     begin
         EmailAccountMgt.GetAllAccounts(TempEmailAccount);
-        TempEmailAccount.SetRange("Email Address", GLSetup."JGV Support Mail Acc. Id BIQS");
+        TempEmailAccount.SetRange("Email Address", GLSetup."Support Mail Acc. Id BIQS");
         if not TempEmailAccount.FindFirst() then
-            Error(AccountNotFoundErr, GLSetup."JGV Support Mail Acc. Id BIQS");
+            Error(AccountNotFoundErr, GLSetup."Support Mail Acc. Id BIQS");
 
         Email.Send(EmailMessage, TempEmailAccount."Account Id", TempEmailAccount.Connector);
     end;
 
     local procedure GetMaxRestartAttempts(GLSetup: Record "General Ledger Setup"; JobQueueEntry: Record "Job Queue Entry"): Integer
     begin
-        if JobQueueEntry."JGV Max Restart Att. BIQS" > 0 then
-            exit(JobQueueEntry."JGV Max Restart Att. BIQS");
-        if GLSetup."JGV Max Restart Att. BIQS" > 0 then
-            exit(GLSetup."JGV Max Restart Att. BIQS");
+        if JobQueueEntry."Max Restart Att. BIQS" > 0 then
+            exit(JobQueueEntry."Max Restart Att. BIQS");
+        if GLSetup."Max Restart Att. BIQS" > 0 then
+            exit(GLSetup."Max Restart Att. BIQS");
         exit(3);
     end;
 
     local procedure GetNotifCooldownMins(GLSetup: Record "General Ledger Setup"; JobQueueEntry: Record "Job Queue Entry"): Integer
     begin
-        if JobQueueEntry."JGV Notif. Cooldown BIQS" > 0 then
-            exit(JobQueueEntry."JGV Notif. Cooldown BIQS");
-        if GLSetup."JGV Notif. Cooldown Hrs BIQS" > 0 then
-            exit(GLSetup."JGV Notif. Cooldown Hrs BIQS");
+        if JobQueueEntry."Notif. Cooldown BIQS" > 0 then
+            exit(JobQueueEntry."Notif. Cooldown BIQS");
+        if GLSetup."Notif. Cooldown Hrs BIQS" > 0 then
+            exit(GLSetup."Notif. Cooldown Hrs BIQS");
         exit(120);
     end;
 
