@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="fr-BE" original="Job Queue Error Notifier">
+    <body>
+      <group id="body">
+        <trans-unit id="Codeunit 382081180 - Method 442588226 - NamedType 3783589672" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The following Job Queue Entries are currently in status &lt;b&gt;Error&lt;/b&gt; and could not be restarted automatically:</source>
+          <target state="translated">Les écritures de file d'attente des travaux suivantes sont actuellement en statut &lt;b&gt;Erreur&lt;/b&gt; et n'ont pas pu être redémarrées automatiquement :</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Job Queue Err Notif BIQS - Method BuildBody - NamedType IntroLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 382081180 - Method 442588226 - NamedType 1328387851" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Please review them in Business Central and resolve the underlying issue.</source>
+          <target state="translated">Veuillez les vérifier dans Business Central et résoudre le problème sous-jacent.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Job Queue Err Notif BIQS - Method BuildBody - NamedType OutroLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 382081180 - Method 442588226 - NamedType 2851597894" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <target state="translated">Description</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Job Queue Err Notif BIQS - Method BuildBody - NamedType DescriptionHdrLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 382081180 - Method 442588226 - NamedType 3664401331" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Object</source>
+          <target state="translated">Objet</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Job Queue Err Notif BIQS - Method BuildBody - NamedType ObjectHdrLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 382081180 - Method 442588226 - NamedType 2865526854" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Restart Attempts</source>
+          <target state="translated">Tentatives de redémarrage</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Job Queue Err Notif BIQS - Method BuildBody - NamedType AttemptsHdrLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 382081180 - Method 442588226 - NamedType 3789667296" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Error</source>
+          <target state="translated">Erreur</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Job Queue Err Notif BIQS - Method BuildBody - NamedType ErrorHdrLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 382081180 - Method 2479264773 - NamedType 3792450033" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No e-mail account with address %1 was found. Re-select the Support E-Mail Account in General Ledger Setup.</source>
+          <target state="translated">Aucun compte e-mail avec l'adresse %1 n'a été trouvé. Veuillez resélectionner le compte e-mail d'assistance dans les paramètres comptabilité.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = the configured sender e-mail address</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Job Queue Err Notif BIQS - Method SendEmailMessage - NamedType AccountNotFoundErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 382081180 - Method 3724465522 - NamedType 3871721722" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Business Central: Job Queue Errors detected (%1)</source>
+          <target state="translated">Business Central : erreurs de file d'attente des travaux détectées (%1)</target>
+          <note from="Developer" annotates="general" priority="2">%1 = number of Job Queue Entries in error</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit Job Queue Err Notif BIQS - Method SendNotificationsIfNeeded - NamedType SubjectLbl</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4017398893 - Control 2075294039 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4050813720">
+          <source>Specifies how many consecutive failed restart attempts trigger a notification e-mail. Leave at 0 for the default of 3 (approx. 15 min. at a 5-min. interval). The counter resets after each e-mail.</source>
+          <target state="translated">Indique le nombre de tentatives de redémarrage consécutives échouées déclenchant l'envoi d'un e-mail de notification. Laissez à 0 pour la valeur par défaut de 3 (env. 15 min. avec un intervalle de 5 min.). Le compteur est réinitialisé après chaque e-mail.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension G/L Setup Ext BIQS - Control Max Restart Att. BIQS - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4017398893 - Control 3165881267 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4050813720">
+          <source>Specifies the minimum number of minutes between consecutive notification e-mails for the same job queue entry. Leave at 0 for the default of 120 minutes.</source>
+          <target state="translated">Indique le nombre minimum de minutes entre deux e-mails de notification consécutifs pour la même écriture de file d'attente des travaux. Laissez à 0 pour la valeur par défaut de 120 minutes.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension G/L Setup Ext BIQS - Control Notif. Cooldown Hrs BIQS - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4017398893 - Control 1291664273 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4050813720">
+          <source>Specifies the recipient e-mail address used by the job queue error notifier to report errors.</source>
+          <target state="translated">Indique l'adresse e-mail du destinataire utilisée par le notificateur d'erreurs de file d'attente des travaux pour signaler les erreurs.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension G/L Setup Ext BIQS - Control Support E-Mail BIQS - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4017398893 - Control 2299731183 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4050813720">
+          <source>Specifies the e-mail account used as sender for job queue error notifications. Click the assist-edit button to select from configured e-mail accounts.</source>
+          <target state="translated">Indique le compte e-mail utilisé comme expéditeur pour les notifications d'erreurs de file d'attente des travaux. Cliquez sur le bouton d'assistance pour sélectionner parmi les comptes e-mail configurés.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension G/L Setup Ext BIQS - Control Support Mail Acc. Id BIQS - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4017398893 - Control 2299731183 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4050813720">
+          <source>Support E-Mail Account</source>
+          <target state="translated">Compte e-mail d'assistance</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension G/L Setup Ext BIQS - Control Support Mail Acc. Id BIQS - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4017398893 - Control 2299731183 - Method 2699620902 - NamedType 4100786335" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 4017398893">
+          <source>No e-mail accounts are configured. Please configure one in E-Mail Accounts before selecting an account here.</source>
+          <target state="translated">Aucun compte e-mail n'est configuré. Veuillez en configurer un dans Comptes e-mail avant d'en sélectionner un ici.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension G/L Setup Ext BIQS - Control Support Mail Acc. Id BIQS - Method OnAssistEdit - NamedType NoAccountErr</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3276666176 - Control 1489985639 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 942706168">
+          <source>Specifies whether this job queue entry is monitored by the error notifier when its status is Error.</source>
+          <target state="translated">Indique si cette écriture de file d'attente des travaux est surveillée par le notificateur d'erreurs lorsque son statut est Erreur.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Job Queue Entries Ext BIQS - Control Monitor For Errors BIQS - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1836664186 - Control 1489985639 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2276662850">
+          <source>Specifies whether this job queue entry is monitored by the error notifier when its status is Error.</source>
+          <target state="translated">Indique si cette écriture de file d'attente des travaux est surveillée par le notificateur d'erreurs lorsque son statut est Erreur.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Job Queue Entry Card Ext BIQS - Control Monitor For Errors BIQS - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3291324088 - Field 2075294039 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4050813720">
+          <source>Max. Attempts Before Notification</source>
+          <target state="translated">Nbre max. de tentatives avant notification</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GL Setup Ext BIQS - Field Max Restart Att. BIQS - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3291324088 - Field 3165881267 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4050813720">
+          <source>Notification Cooldown (minutes)</source>
+          <target state="translated">Délai de renotification (minutes)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GL Setup Ext BIQS - Field Notif. Cooldown Hrs BIQS - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3291324088 - Field 1291664273 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4050813720">
+          <source>Support E-Mail</source>
+          <target state="translated">E-mail d'assistance</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GL Setup Ext BIQS - Field Support E-Mail BIQS - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3291324088 - Field 2299731183 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4050813720">
+          <source>Support E-Mail Account</source>
+          <target state="translated">Compte e-mail d'assistance</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension GL Setup Ext BIQS - Field Support Mail Acc. Id BIQS - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 108752766 - Field 406213093 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2990248934">
+          <source>Specifies the date and time the last error notification was sent for this job queue entry.</source>
+          <target state="translated">Indique la date et l'heure auxquelles la dernière notification d'erreur a été envoyée pour cette écriture de file d'attente des travaux.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Job Queue Entry Ext BIQS - Field Last Notif. Sent BIQS - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 108752766 - Field 406213093 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2990248934">
+          <source>Last Notification Sent</source>
+          <target state="translated">Dernière notification envoyée</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Job Queue Entry Ext BIQS - Field Last Notif. Sent BIQS - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 108752766 - Field 2075294039 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2990248934">
+          <source>Number of consecutive restart attempts before an error notification is sent. Does not affect BC's own restart behaviour. Leave at 0 to use the value from General Ledger Setup.</source>
+          <target state="translated">Nombre de tentatives de redémarrage consécutives avant l'envoi d'une notification d'erreur. N'affecte pas le comportement de redémarrage propre à BC. Laissez à 0 pour utiliser la valeur des paramètres comptabilité.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Job Queue Entry Ext BIQS - Field Max Restart Att. BIQS - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 108752766 - Field 2075294039 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2990248934">
+          <source>Max. Attempts Before Notification</source>
+          <target state="translated">Nbre max. de tentatives avant notification</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Job Queue Entry Ext BIQS - Field Max Restart Att. BIQS - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 108752766 - Field 1489985639 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2990248934">
+          <source>Specifies whether this job queue entry is monitored for errors. When enabled, the entry is automatically restarted on failure and a notification is sent if it fails repeatedly.</source>
+          <target state="translated">Indique si cette écriture de file d'attente des travaux est surveillée pour les erreurs. Lorsqu'elle est activée, l'écriture est automatiquement redémarrée en cas d'échec et une notification est envoyée si elle échoue de manière répétée.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Job Queue Entry Ext BIQS - Field Monitor For Errors BIQS - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 108752766 - Field 1489985639 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2990248934">
+          <source>Monitor for Errors</source>
+          <target state="translated">Surveiller les erreurs</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Job Queue Entry Ext BIQS - Field Monitor For Errors BIQS - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 108752766 - Field 3593283500 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2990248934">
+          <source>Specifies the minimum number of minutes between consecutive notifications for this entry. Leave at 0 to use the value from General Ledger Setup.</source>
+          <target state="translated">Indique le nombre minimum de minutes entre deux notifications consécutives pour cette écriture. Laissez à 0 pour utiliser la valeur des paramètres comptabilité.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Job Queue Entry Ext BIQS - Field Notif. Cooldown BIQS - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 108752766 - Field 3593283500 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2990248934">
+          <source>Notification Cooldown (minutes)</source>
+          <target state="translated">Délai de renotification (minutes)</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Job Queue Entry Ext BIQS - Field Notif. Cooldown BIQS - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 108752766 - Field 3504281212 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2990248934">
+          <source>Shows the number of consecutive times this entry has been restarted after an error. Reset when the entry runs successfully or after the notification cooldown period expires.</source>
+          <target state="translated">Affiche le nombre de fois consécutives que cette écriture a été redémarrée après une erreur. Réinitialisé lorsque l'écriture s'exécute avec succès ou après l'expiration du délai de renotification.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Job Queue Entry Ext BIQS - Field Restart Attempts BIQS - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 108752766 - Field 3504281212 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2990248934">
+          <source>Restart Attempts</source>
+          <target state="translated">Tentatives de redémarrage</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension Job Queue Entry Ext BIQS - Field Restart Attempts BIQS - Property Caption</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

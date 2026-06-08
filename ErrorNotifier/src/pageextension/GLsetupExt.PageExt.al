@@ -7,13 +7,13 @@ pageextension 50602 "G/L Setup Ext BIQS" extends "General Ledger Setup"
             field("Support E-Mail BIQS"; Rec."Support E-Mail BIQS")
             {
                 ApplicationArea = All;
-                ToolTip = 'Geeft het e-mailadres op van de ontvanger die door de taakwachtrij-foutmelding wordt gebruikt om fouten in taakwachtrij-posten te rapporteren.';
+                ToolTip = 'Specifies the recipient e-mail address used by the job queue error notifier to report errors.';
             }
             field("Support Mail Acc. Id BIQS"; Rec."Support Mail Acc. Id BIQS")
             {
                 ApplicationArea = All;
-                Caption = 'Ondersteunings-e-mailaccount';
-                ToolTip = 'Geeft het e-mailadres op van het account dat als afzender wordt gebruikt voor de taakwachtrij-foutmelding. Klik op de knop Bewerken om een account te kiezen uit de geconfigureerde e-mailaccounts.';
+                Caption = 'Support E-Mail Account';
+                ToolTip = 'Specifies the e-mail account used as sender for job queue error notifications. Click the assist-edit button to select from configured e-mail accounts.';
 
                 trigger OnAssistEdit()
                 var
@@ -40,12 +40,12 @@ pageextension 50602 "G/L Setup Ext BIQS" extends "General Ledger Setup"
             field("Max Restart Att. BIQS"; Rec."Max Restart Att. BIQS")
             {
                 ApplicationArea = All;
-                ToolTip = 'Geeft aan hoeveel opeenvolgende mislukte herstartpogingen worden gedaan voordat een meldingse-mail wordt verzonden. Laat op 0 staan voor de standaardwaarde van 3 (ca. 15 min. bij een interval van 5 min.). De teller wordt na elke e-mail gereset.';
+                ToolTip = 'Specifies how many consecutive failed restart attempts trigger a notification e-mail. Leave at 0 for the default of 3 (approx. 15 min. at a 5-min. interval). The counter resets after each e-mail.';
             }
             field("Notif. Cooldown Hrs BIQS"; Rec."Notif. Cooldown Hrs BIQS")
             {
                 ApplicationArea = All;
-                ToolTip = 'Geeft het minimale aantal minuten op tussen opeenvolgende meldingse-mails voor dezelfde taakwachtrij-post. Laat op 0 staan voor de standaardwaarde van 120 minuten.';
+                ToolTip = 'Specifies the minimum number of minutes between consecutive notification e-mails for the same job queue entry. Leave at 0 for the default of 120 minutes.';
             }
         }
     }
